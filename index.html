@@ -15,11 +15,14 @@
         const buttons = document.querySelectorAll('.drum-pad');   
         let list = document.getElementById("knob").classList;
         function Press (e) { 
+
             const audio = document.querySelector(`audio[id='${e.target.innerText}']`);
+            
             if(!audio) return;
             audio.currentTime = 0;  
             audio.play(); 
             $('#display').html(e.target.id)
+            
           }
 
           if([...list].includes("fa-toggle-on")) {

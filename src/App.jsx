@@ -1,20 +1,50 @@
 import "./App.css"
-import { useState, useEffect, useCallback, useMemo} from "react";
+import { useState, useEffect, useRef, useLayoutEffect} from "react";
 
 
 function App() {
+  
+  const vol = document.querySelectorAll(".drum-pad");
+  
+  //const AudioVolume = useRef();
+  const [volume, setVolume] = useState(30);
+  const [audioname, setAudioname] = useState("")
 
+
+   
+  function changeVolume (e) {
+    console.log(e)
+    setVolume(e.target.value)
+  
+  }
+
+  //useEffect(() => {
+    const hit = () => {
+      //if(AudioVolume){
+        //AudioVolume.current.volume = volume / 100
+        const clips = document.querySelectorAll('.clip');
+        [...clips].forEach(item => item.volume = volume / 100)
+      //}
+    }
+    [...vol].forEach(i => i.addEventListener("click", hit))
+    
+    //})
+  
     const presskey = (e) => {
-      console.log(e)
-    const Sound = document.querySelector(`audio[data-keys="${e.keyCode}"]`)
-    if(!Sound) return;
-    Sound.currentTime = 0;
-    Sound.play();
+      hit()
+      const Sound = document.querySelector(`audio[data-keys="${e.keyCode}"]`)
+      if(!Sound) return;
+      Sound.currentTime = 0;
+      Sound.play();
+      setAudioname(Sound.parentNode.id)
   
   } 
   
-  window.addEventListener('keydown', presskey)
+    window.addEventListener('keydown', presskey)
   
+
+  
+    
   return(
   <div id="drum-machine">
     <div className="inner1">
@@ -30,8 +60,8 @@ function App() {
     </div>
     <div className="inner2">
       <i className="fa-solid fa-toggle-on fa-4x switch" id="knob"></i>
-      <div id="display" className="text-center"></div>
-      <input type="range" min="1" max="100" className="volume"></input>
+      <div id="display" className="text-center">{audioname}</div>
+      <input type="range" min={1} max={100} className="volume" value={volume} onChange={changeVolume}></input>
     </div>
     
   </div>
