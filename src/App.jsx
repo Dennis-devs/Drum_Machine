@@ -1,35 +1,26 @@
 import "./App.css"
-import { useState, useEffect, useRef, useLayoutEffect} from "react";
+import { useState} from "react";
 
 
 function App() {
   
   const vol = document.querySelectorAll(".drum-pad");
   
-  //const AudioVolume = useRef();
   const [volume, setVolume] = useState(30);
   const [audioname, setAudioname] = useState("")
 
-
-   
   function changeVolume (e) {
     console.log(e)
     setVolume(e.target.value)
   
   }
-
-  //useEffect(() => {
+    
     const hit = () => {
-      //if(AudioVolume){
-        //AudioVolume.current.volume = volume / 100
         const clips = document.querySelectorAll('.clip');
         [...clips].forEach(item => item.volume = volume / 100)
-      //}
     }
     [...vol].forEach(i => i.addEventListener("click", hit))
     
-    //})
-  
     const presskey = (e) => {
       hit()
       const Sound = document.querySelector(`audio[data-keys="${e.keyCode}"]`)
@@ -39,11 +30,10 @@ function App() {
       setAudioname(Sound.parentNode.id)
   
   } 
-  
+    
     window.addEventListener('keydown', presskey)
-  
-
-  
+    
+    
     
   return(
   <div id="drum-machine">
