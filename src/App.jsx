@@ -1,5 +1,5 @@
 import "./App.css"
-import { useState} from "react";
+import { useEffect, useState} from "react";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     setVolume(e.target.value)
   
   }
-    
+    useEffect(() => {
     const hit = () => {
         const clips = document.querySelectorAll('.clip');
         [...clips].forEach(item => item.volume = volume / 100)
@@ -32,7 +32,7 @@ function App() {
   } 
     
     window.addEventListener('keydown', presskey)
-    
+}, [])
     
   return(
   <div id="drum-machine">
