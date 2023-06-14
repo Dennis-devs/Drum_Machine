@@ -39,7 +39,7 @@ function App() {
     <div className="inner1">
       <button className="drum-pad" id="Heater 1">Q<audio data-keys={81} src="../public/Heater-1.mp3" className="clip" id="Q"></audio></button>
       <button className="drum-pad" id="Heater 2">W<audio data-keys={87} src="/Heater-2.mp3" className="clip" id="W"></audio></button>
-      <button className="drum-pad" id="Heater 3">E<audio data-keys={69} src="assets/Heater-3.mp3" className="clip" id="E"></audio></button>
+      <button className="drum-pad" id="Heater 3">E<audio data-keys={69} src="./assets/Heater-3.mp3" className="clip" id="E"></audio></button>
       <button className="drum-pad" id="Heater 4">A<audio data-keys={65} src="../Audi/Heater-4_1.mp3" className="clip" id="A"></audio></button>
       <button className="drum-pad" id="Clap">S<audio data-keys={83} src="/Heater-6.mp3" className="clip" id="S"></audio></button>
       <button className="drum-pad" id="Open-HH">D<audio data-keys={68} src="/Dsc_Oh.mp3" className="clip" id="D"></audio></button>
