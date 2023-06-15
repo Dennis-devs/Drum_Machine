@@ -5,10 +5,10 @@ import play2 from "../public/Heater-2.mp3"
 import play3 from "../public/Heater-3.mp3"
 import play4 from "../public/Heater-4_1.mp3"
 import play5 from "../public/Heater-6.mp3"
-import play6 from "../public/Dsc_Oh"
-import play7 from "../public/Kick_n_Hat"
-import play8 from "../public/RP4_KICK_1"
-import play9 from "../public/Cev_H2"
+import play6 from "../public/Dsc_Oh.mp3"
+import play7 from "../public/Kick_n_Hat.mp3"
+import play8 from "../public/RP4_KICK_1.mp3"
+import play9 from "../public/Cev_H2.mp3"
 
 
 function App() {
